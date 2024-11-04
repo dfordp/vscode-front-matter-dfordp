@@ -2,10 +2,12 @@
 
 /* eslint-disable */
 const path = require('path');
-const { ProvidePlugin } = require('webpack');
+const { ProvidePlugin } = require("@rspack/core");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const WebpackManifestPlugin = require('webpack-manifest-plugin').WebpackManifestPlugin;
-const ESLintPlugin = require('eslint-webpack-plugin');
+const {
+  RspackManifestPlugin
+} = require("rspack-manifest-plugin");
+const ESLintPlugin = require("eslint-rspack-plugin");
 
 const config = [{
   name: 'dashboard',
@@ -51,13 +53,13 @@ const config = [{
     hints: false
   },
   plugins: [
-    new ProvidePlugin({
+    new rspack.ProvidePlugin({
       // Make a global `process` variable that points to the `process` package,
       // because the `util` package expects there to be a global variable named `process`.
       // Thanks to https://stackoverflow.com/a/65018686/14239942
       process: 'process/browser'
     }),
-    new WebpackManifestPlugin({
+    new RspackManifestPlugin({
       publicPath: "",
       fileName: "dashboard.manifest.json"
     }),

@@ -7,7 +7,7 @@
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const IgnoreDynamicRequire = require('webpack-ignore-dynamic-require');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require("eslint-rspack-plugin");
 
 const config = [
   {
